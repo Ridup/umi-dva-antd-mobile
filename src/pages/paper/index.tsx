@@ -62,6 +62,35 @@ class Index extends React.PureComponent<ITextPaperProps, IPaperState> {
     }
   }
 
+  public render() {
+    const { h5: { questions } } = this.props;
+    return (
+      <div className={styles['test-paper']}>
+        {questions && questions.length > 0 ? (
+          this.getPaperContent()
+        ) : (
+          <Fragment>
+            <div className={styles['top-wrap']}>
+              <div className={styles.title}>模拟考试试卷</div>
+              <div
+                className={styles.back}
+                onClick={() => {
+                  router.push('/entrance');
+                }}
+              >
+                返回首页
+              </div>
+              <div className={styles['empty-content']}>
+                <img src={require('../../assets/h5/empty.svg')} style={{ width: 100 }}/>
+                <div>没有任何模拟考试试题信息</div>
+              </div>
+            </div>
+          </Fragment>
+        )}
+      </div>
+    );
+  }
+
 
   /**
    * 获取题型
@@ -326,35 +355,6 @@ class Index extends React.PureComponent<ITextPaperProps, IPaperState> {
       </Fragment>
     );
   };
-
-  public render() {
-    const { h5: { questions } } = this.props;
-    return (
-      <div className={styles['test-paper']}>
-        {questions && questions.length > 0 ? (
-          this.getPaperContent()
-        ) : (
-          <Fragment>
-            <div className={styles['top-wrap']}>
-              <div className={styles.title}>模拟考试试卷</div>
-              <div
-                className={styles.back}
-                onClick={() => {
-                  router.push('/entrance');
-                }}
-              >
-                返回首页
-              </div>
-              <div className={styles['empty-content']}>
-                <img src={require('../../assets/h5/empty.svg')} style={{ width: 100 }}/>
-                <div>没有任何模拟考试试题信息</div>
-              </div>
-            </div>
-          </Fragment>
-        )}
-      </div>
-    );
-  }
 
   private loadWrongQuestions = () => {
     const { dispatch } = this.props;

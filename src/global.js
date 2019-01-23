@@ -1,12 +1,12 @@
 import { Toast, Modal } from 'antd-mobile';
 import './global.less';
 
-// Notify user if offline now
+// Notify base if offline now
 window.addEventListener('sw.offline', () => {
   Toast.offline('当前处于离线状态');
 });
 
-// Pop up a prompt on the page asking the user if they want to use the latest version
+// Pop up a prompt on the page asking the base if they want to use the latest version
 window.addEventListener('sw.updated', e => {
   const reloadSW = async () => {
     // Check if there is sw whose state is waiting in ServiceWorkerRegistration

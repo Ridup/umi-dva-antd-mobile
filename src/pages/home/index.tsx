@@ -1,5 +1,5 @@
-import React from 'react';
 import {Button} from 'antd-mobile';
+import React from 'react';
 import router from 'umi/router';
 
 const styles = require('./index.less');
@@ -12,7 +12,7 @@ export default class extends React.Component<{}> {
 
   public render = () => {
     return (<div className={styles.home}>
-    
+
       <div
           className={styles.index}
         >

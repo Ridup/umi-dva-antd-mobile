@@ -85,6 +85,7 @@ class Index extends React.Component<IEntranceProps, IEntranceState> {
           onOk={e => {
             this.setState({
               chapterValue: e,
+              // @ts-ignore
               chapterLabel: chapterData.filter(x => x.value === e[0])[0].label,
             });
           }}

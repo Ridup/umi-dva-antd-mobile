@@ -1,12 +1,14 @@
 export default [
-  // user
+  // base
   {
     path: '/user',
-    component: '../layouts/UserLayout',
+    component: '../layouts/LoginLayout',
     routes: [
       { path: '/user', redirect: '/user/login' },
       { path: '/user/login', component: './User/Login' },
+      { component: '404' },
     ],
+
   },
   // TabBar
   {
@@ -50,6 +52,7 @@ export default [
         component: '/tabbar/Koubei',
         iconName: 'my',
       },
+      { component: '404' },
     ],
   },
   // H5
@@ -57,7 +60,7 @@ export default [
     path: '/',
     component: '../layouts/BasicLayout',
     Routes: ['src/pages/Authorized'],
-    authority: ['user', 'admin'],
+    authority: ['base', 'admin'],
     routes: [
       { path: '/', component: './home/index', title: '首页' },
       { path: '/entrance', component: './entrance/index', title: '主入口' },
